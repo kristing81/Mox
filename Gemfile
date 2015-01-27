@@ -29,8 +29,9 @@ gem 'devise'
 gem 'haml-rails'
 
 gem 'figaro'
+gem 'arel', '6.0.0.beta2'
 
-gem 'faker', '~> 1.4.3'
+#gem 'faker', '~> 1.4.3'
 
 group :development , :test do
   gem 'byebug'
