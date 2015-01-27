@@ -30,14 +30,14 @@ gem 'haml-rails'
 
 gem 'figaro'
 
-group :development, :test do
-  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
+gem 'faker', '~> 1.4.3'
+
+group :development , :test do
   gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0.0.beta4'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem 'ffaker'
   gem 'spring'
 end
 
