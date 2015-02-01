@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :reset_session
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
    devise_parameter_sanitizer.for(:sign_up) << :name
   end
+
+  def authenticate_with_token!
+    render json: { errors: "Not authenticated" },
+                status: :unauthorized unless current_user.present?
+  end
+
 end
