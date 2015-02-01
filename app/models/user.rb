@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
     self.auth_token = SecureRandom.hex(21)
   end
 
+  def person
+    Faker::Name.name
+  end
+
 end
