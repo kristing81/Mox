@@ -1,6 +1,8 @@
 class Api::V1::BaseController < ApplicationController
-  before_create :generate_authentication_token!
+ 
   before_action :authenticate_with_token!
+  
+  before_filter :throttle
 
   respond_to :json, :xml
 
@@ -8,26 +10,33 @@ class Api::V1::BaseController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def authenticate_with_token!
-    render json: { errors: "Not authenticated" },
-                status: :unauthorized unless current_user.present?
+    token = params[:auth_token]
+    user = User.where(auth_token: token).first
+
+    if user.present?
+      sign_in user, store: false
+    else
+      respond_with({error: "Unauthorized"}, status: :unauthorized)
+    end
   end
 
-  def person
-    person = Faker::Name.name
+  def throttle
+    client_ip = request.env["REMOTE_ADDR"]
+    key = "count:#{client_ip}"
+    count = REDIS.get(key)
+
+    unless count
+      REDIS.set(key, 0)
+      REDIS.expire(key, THROTTLE_TIME_WINDOW)
+      return true
+    end
+
+    if count.to_i >= THROTTLE_MAX_REQUESTS
+      render :status => 429, :json => {:message => "You have fired too many requests. Please wait for some time."}
+      return
+    end
+    REDIS.incr(key)
+    true
   end
 
-  private
-
-  def permission_denied_error
-    error(403, 'Permission Denied!')
-  end
-
-  def error(status, message = 'Something went wrong')
-    response = {
-      response_type: "ERROR",
-      message: message
-    }
-
-    render json: response.to_json, status: status
-  end
 end

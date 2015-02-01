@@ -4,12 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  before_create :generate_authentication_token!
+  
   def generate_authentication_token!
     self.auth_token = SecureRandom.hex(21)
-  end
-
-  def person
-    Faker::Name.name
   end
 
 end
