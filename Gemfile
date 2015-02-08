@@ -31,7 +31,7 @@ gem 'haml-rails'
 gem 'figaro'
 gem 'arel', '6.0.0.beta2'
 
-#gem 'faker'
+gem 'faker'
 
 gem 'redis', '~> 3.2.0'
 
@@ -40,7 +40,6 @@ group :development , :test do
   gem 'web-console', '~> 2.0.0.beta4'
   gem "rspec-rails"
   gem "factory_girl_rails"
-  gem 'ffaker'
   gem 'spring'
 end
 

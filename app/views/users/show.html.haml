@@ -1,0 +1,16 @@
+%p 
+Welcome 
+= @user.email
+!
+%p Thanks for signing up for Mox.  You can now easily create Fake people, products and companies.
+%p To get you started, we've created a special authorization token just for you
+= @user.auth_token
+
+%h2 API
+
+%h3 Fake Person
+
+%pre 
+  GET 
+  = api_v1_people_url(format: :json, auth_token: @user.auth_token, count: "XXX")
+

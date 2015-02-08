@@ -1,0 +1,12 @@
+%p
+Hi 
+= @user.email
+!
+
+%p Thanks for signing up for Mox.  You can now easily create Fake people, products and companies.
+%p To get you started, we've created a special authorization token just for you
+= @user.auth_token
+Use this token to make your requests.
+
+%p Don't forget to visit your User profile is you forget this token #{link_to "here", user_path(@user)}!!
+

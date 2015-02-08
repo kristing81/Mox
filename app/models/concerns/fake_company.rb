@@ -1,22 +1,10 @@
 class FakeCompany
 
+  attr_reader :name, :motto, :bs, :ceo
   def initialize
-    p "Find out your company's name, motto, bs and ceo"
-  end
-  
-  def name
-    Faker::Company.name
-  end
-
-  def motto
-    Faker::Company.catch_phrase
-  end
-
-  def bs
-    Faker::Company.bs
-  end
-
-  def ceo
-    Faker::Name.name
+    @name = Faker::Company.name
+    @motto = Faker::Company.catch_phrase
+    @bs = Faker::Company.bs
+    @ceo = Faker::Company.ceo
   end
 end

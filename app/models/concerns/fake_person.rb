@@ -1,19 +1,22 @@
 class FakePerson
   
   def initialize
-    p "Find out your person's name, title, and the company they work at"
+  @name = Faker::Name.name
+  @title = Faker::Name.title
+  @company = Faker::Company.name
   end
 
-  
-  def name
-    Faker::Name.name
-  end
-
-  def title
-    Faker::Name.title
-  end
-
-  def works_at
-    Faker::Company.name
+  def FakePerson.fake(count = 1)
+    people = []
+    count.times do
+      people << new
+    end
+    people
   end
 end
+ def initialize
+    @name = Faker::Company.name
+    @motto = Faker::Company.motto
+    @bs = Faker::Company.bs
+    @ceo = Faker::Company.ceo
+  end
