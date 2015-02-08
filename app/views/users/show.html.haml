@@ -8,9 +8,26 @@ Welcome
 
 %h2 API
 
+%p To use the API just input the below HTTP requests in your browser window. 
+Set
+%b count: "X"
+to the number of fake items you'd like to request.
+
 %h3 Fake Person
 
 %pre 
-  GET 
-  = api_v1_people_url(format: :json, auth_token: @user.auth_token, count: "XXX")
+  GET&nbsp;
+  = api_v1_people_url(format: :json, auth_token: @user.auth_token, count: "X")
+
+%h3 Fake Company
+
+%pre 
+  GET&nbsp;
+  = api_v1_companies_url(format: :json, auth_token: @user.auth_token, count: "X")
+
+%h3 Fake Product
+
+%pre 
+  GET&nbsp;
+  = api_v1_products_url(format: :json, auth_token: @user.auth_token, count: "X")
 

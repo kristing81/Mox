@@ -1,5 +1,7 @@
 class FakePerson
-  
+
+  attr_reader :name, :title, :company
+
   def initialize
   @name = Faker::Name.name
   @title = Faker::Name.title
@@ -14,9 +16,3 @@ class FakePerson
     people
   end
 end
- def initialize
-    @name = Faker::Company.name
-    @motto = Faker::Company.motto
-    @bs = Faker::Company.bs
-    @ceo = Faker::Company.ceo
-  end

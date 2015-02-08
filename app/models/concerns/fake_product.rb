@@ -1,18 +1,20 @@
 class FakeProduct
 
+  attr_reader :name, :price, :department
+
   def initialize
-    p "Find out your product's name, price and department"
+    @name = Faker::Product.name
+    @title = Faker::Product.price
+    @company = Faker::Product.department
   end
+
   
-  def name
-    Faker::Commerce.product_name
-  end
-
-  def price
-    Faker::Commerce.price
-  end
-
-  def department
-    Faker::Commerce.department
+  def FakeProduct.fake(count = 1)
+    products = []
+    count.times do
+      products << new
+    end
+      products
+    end
   end
 end

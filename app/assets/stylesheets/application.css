@@ -22,6 +22,11 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
+  font-weight: 300;
+  font-family: "Open Sans", sans-serif;
+  color: #4d4d4d;
+  font-size: 16px;
+  line-height: 1.42857;
   }
 header {
   border: 1px solid #d4d4d4;

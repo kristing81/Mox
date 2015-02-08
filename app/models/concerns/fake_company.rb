@@ -7,4 +7,14 @@ class FakeCompany
     @bs = Faker::Company.bs
     @ceo = Faker::Company.ceo
   end
+
+
+  def FakeCompany.fake(count = 1)
+    companies = []
+    count.times do
+      companies << new
+    end
+    companies
+    end
+  end
 end
