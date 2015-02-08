@@ -10,4 +10,11 @@ class User < ActiveRecord::Base
     self.auth_token = SecureRandom.hex(21)
   end
 
+  def balance
+    read_attribute(:balance_in_cents) / 100.0
+  end
+
+  def credit_balance(amount_in_dollars)
+    write_attribute(:balance_in_cents, read_attribute(:balance_in_cents) + (amount_in_dollars * 100))
+  end
 end
