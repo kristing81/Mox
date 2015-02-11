@@ -5,5 +5,6 @@ class Api::V1::CompaniesController < Api::V1::BaseController
       @fake_company = FakeCompany.fake(params[:count].to_i)
       respond_with(@fake_company)
    end
+
 end
 

@@ -17,4 +17,5 @@ class User < ActiveRecord::Base
   def credit_balance(amount_in_dollars)
     write_attribute(:balance_in_cents, read_attribute(:balance_in_cents) + (amount_in_dollars * 100))
   end
+
 end
