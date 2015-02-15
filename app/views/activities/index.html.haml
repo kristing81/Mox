@@ -1,0 +1,6 @@
+%h1 Activities
+- @activities.each do |activity|
+  = div_for activity do
+    = render "#{activity.action}_current_user"
+none
+    

@@ -67,3 +67,8 @@ nav a {
   border-color: #eed3d7;
   color: #b94a48;
 }
+
+.activity {
+  border-bottom: solid 1px #CCC;
+  padding: 16px 0;
+}

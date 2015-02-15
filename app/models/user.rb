@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_create :generate_authentication_token!
+  has_many :activities
   
   def generate_authentication_token!
     self.auth_token = SecureRandom.hex(21)
@@ -16,6 +17,10 @@ class User < ActiveRecord::Base
 
   def credit_balance(amount_in_dollars)
     write_attribute(:balance_in_cents, read_attribute(:balance_in_cents) + (amount_in_dollars * 100))
+  end
+
+  def recent_activities(limit)
+    activities.order('created_at DESC').limit(limit)
   end
 
 end
