@@ -1,6 +1,12 @@
 %h1 Activities
-- @activities.each do |activity|
-  = div_for activity do
-    = render "#{activity.action}_current_user"
-none
-    
+
+%table
+  %tr
+    %th Request
+    %th Parameters
+    %th Result
+  - @activities.each do |activity|
+    %tr
+      %td= activity.request_url
+    / %td= 
+      %td= activity.status

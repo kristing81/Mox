@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   before_create :generate_authentication_token!
   has_many :activities
+  has_many :track_apis
   
   def generate_authentication_token!
     self.auth_token = SecureRandom.hex(21)
@@ -24,3 +25,4 @@ class User < ActiveRecord::Base
   end
 
 end
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215071746) do
+ActiveRecord::Schema.define(version: 20150222073132) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20150215071746) do
 
   add_index "activities", ["trackable_id"], name: "index_activities_on_trackable_id"
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
+
+  create_table "track_apis", force: true do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "request_url"
+    t.integer  "user_id"
+    t.integer  "auth_token"
+  end
+
+  add_index "track_apis", ["auth_token"], name: "index_track_apis_on_auth_token"
+  add_index "track_apis", ["user_id"], name: "index_track_apis_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
