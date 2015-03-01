@@ -72,3 +72,10 @@ nav a {
   border-bottom: solid 1px #CCC;
   padding: 16px 0;
 }
+
+th {
+  width: 300px;
+  border: 1px solid-black;
+  padding: 10px;
+
+}

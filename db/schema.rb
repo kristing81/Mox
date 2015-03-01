@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222073132) do
+ActiveRecord::Schema.define(version: 20150226101807) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -26,11 +26,14 @@ ActiveRecord::Schema.define(version: 20150222073132) do
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "track_apis", force: true do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "request_url"
     t.integer  "user_id"
     t.integer  "auth_token"
+    t.text     "query_params"
+    t.integer  "result_code"
+    t.string   "result_message"
   end
 
   add_index "track_apis", ["auth_token"], name: "index_track_apis_on_auth_token"

@@ -8,5 +8,8 @@
   - @activities.each do |activity|
     %tr
       %td= activity.request_url
-    / %td= 
-      %td= activity.status
+      %td= activity.query_params
+      %td
+        = activity.result_code
+        = activity.result_message
+

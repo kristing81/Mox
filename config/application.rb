@@ -21,6 +21,6 @@ module Mox
 
   config.autoload_paths += %W(\#{config.root}/lib)
   config.active_record.raise_in_transactional_callbacks = true
- config.middleware.use Rack::Throttle::Interval :rules => {:url => /api/, :method => :post}
+  config.middleware.use Rack::Throttle::Interval, :rules => {:url => /api/, :method => :get}
   end
 end

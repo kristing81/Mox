@@ -5,7 +5,6 @@ class Api::V1::BaseController < ApplicationController
   respond_to :json, :xml
 
   around_filter :deduct_balance
-  # after_filter :track_api_Call
 
   skip_before_action :verify_authenticity_token
 
@@ -23,10 +22,6 @@ class Api::V1::BaseController < ApplicationController
  
   private
 
-  def track_api_call
-
-  end
-
   def deduct_balance
     begin
       @user = current_user
@@ -39,8 +34,8 @@ class Api::V1::BaseController < ApplicationController
         respond_with({errors: "Balance is empty"}, status: :payment_required)
       end
     ensure
-      raise request.query_parameters.inspect
-      TrackApi.create(request_url: request.original_url, user_id: @user.id)
+      # raise request.query_parameters.inspect
+      TrackApi.create(request_url: request.original_url, user_id: @user.id, query_params: request.query_parameters, result_code: response.status, result_message: response.message)
     end
   end
 end
