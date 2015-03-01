@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'rack/throttle'
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,6 +21,6 @@ module Mox
 
   config.autoload_paths += %W(\#{config.root}/lib)
   config.active_record.raise_in_transactional_callbacks = true
-  config.middleware.use Rack::Throttle::Interval, :rules => {:url => /api/, :method => :get}
+  config.middleware.use Rack::Attack
   end
 end

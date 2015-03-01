@@ -1,15 +1,15 @@
-%h1 Activities
+%h2 Recent Requests
 
 %table
   %tr
     %th Request
-    %th Parameters
     %th Result
+    %th Request Parameters
   - @activities.each do |activity|
     %tr
       %td= activity.request_url
-      %td= activity.query_params
       %td
         = activity.result_code
         = activity.result_message
+      %td= activity.query_params
 

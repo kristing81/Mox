@@ -35,7 +35,10 @@ class Api::V1::BaseController < ApplicationController
       end
     ensure
       # raise request.query_parameters.inspect
-      TrackApi.create(request_url: request.original_url, user_id: @user.id, query_params: request.query_parameters, result_code: response.status, result_message: response.message)
+      sanitized_params = request.query_parameters
+      sanitized_params[:auth_token] = "XXXXXXX"
+      request_url = request.original_url.split("?").first
+      TrackApi.create(request_url: request_url, user_id: @user.id, query_params: sanitized_params, result_code: response.status, result_message: response.message)
     end
   end
 end

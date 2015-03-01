@@ -33,11 +33,9 @@ gem 'arel', '6.0.0.beta2'
 
 gem 'faker'
 
-gem 'redis', '~> 3.2.0'
-
 gem 'stripe'
 
-gem 'rack-throttle', '~> 0.4.0'
+gem 'rack-attack', '~> 4.2.0'
 
 gem 'thin'
 

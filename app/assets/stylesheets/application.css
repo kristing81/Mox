@@ -73,9 +73,29 @@ nav a {
   padding: 16px 0;
 }
 
+table {
+  width: 1000px;
+  border: 1px solid #356656;
+  border-color: #356656;
+  border-radius: 5px;
+  box-shadow: 10
+}
+
 th {
   width: 300px;
-  border: 1px solid-black;
+  border: 1px solid #356656;
   padding: 10px;
 
+}
+td {
+  border:1px solid #356656;
+  padding:5px;
+}
+img {
+  border-radius: 10px;
+  border: 2px  solid #356656;
+}
+.col {
+  width: 300px;
+  position: relative;
 }
