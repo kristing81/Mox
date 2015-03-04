@@ -9,8 +9,4 @@ class ApplicationController < ActionController::Base
    devise_parameter_sanitizer.for(:sign_up) << :name
   end
 
-  # def track_activity(trackable, action = nil)
-  #   current_user.activities.create! action: action, trackable: trackable
-  # end
-
 end

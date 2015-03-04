@@ -1,15 +1,19 @@
-%h2 Recent Requests
-
-%table
-  %tr
-    %th Request
-    %th Result
-    %th Request Parameters
-  - @activities.each do |activity|
-    %tr
-      %td= activity.request_url
-      %td
-        = activity.result_code
-        = activity.result_message
-      %td= activity.query_params
-
+.container
+  .row
+    .col-md-12
+      %h2 Recent Requests
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th Request
+            %th#result Result
+            %th Request Parameters
+        %tbody
+        - @activities.each do |activity|
+          %tr
+            %td= activity.request_url
+            %td
+              = activity.result_code
+              = activity.result_message
+            %td= activity.query_params
+            

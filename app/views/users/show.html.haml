@@ -1,40 +1,42 @@
-%p 
-Welcome 
-= @user.email
-!
-%p
-  You currently have 
-  = number_to_currency(current_user.balance)
-  available in your account.
-%p Thanks for signing up for Mox.  You can now easily create Fake people, products and companies.
-%p To get you started, we've created a special authorization token just for you
-= @user.auth_token
+.container
+  .row
+    .col.md-12
+      %p 
+      Welcome 
+      %b= @user.email
+      !
+      %p
+      You currently have
+      %b= number_to_currency(current_user.balance)
+      available in your account.
+      %p Thanks for signing up for Mox.  You can now easily create Fake people, products and companies.
+      %p To get you started, we've created a special authorization token just for you.
+      %b= @user.auth_token
+      %h2 API
+      %p First you have to add some credit to your account.  
+      Just 
+      = link_to "Add Credit", new_charge_url
+      to get 500 credits on your account!  Each request is 1 credit and you can easily top it up.
+      %p To use the API just input the below HTTP requests in your browser window. 
+      Set
+      %b count: "X"
+      to the number of fake items you'd like to request.
+  .row      
+    %h3 Fake Person
 
-%h2 API
-%p First you have to add some credit to your account.  
-Just click 
-= link_to "Add Credit", new_charge_url
-to get 500 credits on your account!  Each request is 1 credit and you can easily top it up.
-%p To use the API just input the below HTTP requests in your browser window. 
-Set
-%b count: "X"
-to the number of fake items you'd like to request.
+    %pre 
+      GET&nbsp;
+      = api_v1_people_url(format: :json, auth_token: @user.auth_token, count: "X")
 
-%h3 Fake Person
+    %h3 Fake Company
 
-%pre 
-  GET&nbsp;
-  = api_v1_people_url(format: :json, auth_token: @user.auth_token, count: "X")
+    %pre 
+      GET&nbsp;
+      = api_v1_companies_url(format: :json, auth_token: @user.auth_token, count: "X")
 
-%h3 Fake Company
+    %h3 Fake Product
 
-%pre 
-  GET&nbsp;
-  = api_v1_companies_url(format: :json, auth_token: @user.auth_token, count: "X")
-
-%h3 Fake Product
-
-%pre 
-  GET&nbsp;
-  = api_v1_products_url(format: :json, auth_token: @user.auth_token, count: "X")
+    %pre 
+      GET&nbsp;
+      = api_v1_products_url(format: :json, auth_token: @user.auth_token, count: "X")
 

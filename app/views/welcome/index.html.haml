@@ -1,31 +1,30 @@
-%h4 Welcome to Mox, where everything is not as it seems
+.container
+  .row
+    .col.md-12
+      %h2 Welcome to Mox, where everything is not as it seems
 
-%p 
-This API is an simple, easy-to-use tool that generates:
-%br
-%table
-  %tr
-    %th Fake People 
-    %th Fake Companies
-    %th Fake Products
-    %tr
-      %td
-        %img{:src => "http://www.familyfuncartoons.com/images/cartoon-people-kids.jpg", :width => "250", :height =>"250"}
-      %td
-        %img{:src => "http://www.tvofyourlife.com/images/funnycompanylogo.jpg", :width => "250", :height =>"250"}
-      %td
-        %img{:src => "http://kitairu.net/images/products/products_96572_463929b5c2b61b8b5b996a3fa56cc1c6.jpeg", :width => "250", :height =>"250"}
-/ .col 
-/ %em Fake People
-/ %br
-/ %img{:src => "http://www.familyfuncartoons.com/images/cartoon-people-kids.jpg", :width => "250", :height =>"250"}
-/ %br
-/ .col 
-/ %em Fake Companies
-/ %br
-/ %img{:src => "http://www.tvofyourlife.com/images/funnycompanylogo.jpg", :width => "250", :height =>"250"}
-/ %br
-/ .col 
-/ %em Fake Products
-/ %br
-/ %img{:src => "http://kitairu.net/images/products/products_96572_463929b5c2b61b8b5b996a3fa56cc1c6.jpeg", :width => "250", :height =>"250"}
+      %p 
+      This API is an simple, easy-to-use tool that generates:
+  %br
+  .row
+    %table.table
+      %thead
+        %tr
+          %th Fake People 
+          %th Fake Companies
+          %th Fake Products
+      %tbody
+        %tr
+          %td
+            %img{:src => "http://www.familyfuncartoons.com/images/cartoon-people-kids.jpg", :width => "250", :height =>"250"}
+          %td
+            %img{:src => "http://www.tvofyourlife.com/images/funnycompanylogo.jpg", :width => "250", :height =>"250"}
+          %td
+            %img{:src => "http://kitairu.net/images/products/products_96572_463929b5c2b61b8b5b996a3fa56cc1c6.jpeg", :width => "250", :height =>"250"}
+  %br
+  .row
+    .jumbotron
+      %h2 Sign up today
+      %p Mox will have you creating things beyond your imagination
+      %p Whate are you waiting for?
+      = link_to "Get Started Today", new_user_registration_path, class: "btn btn-primary btn-lg"
